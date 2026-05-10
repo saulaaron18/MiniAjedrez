@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"progii.juegotablero.exceptions"},{"l":"progii.juegotablero.gui"},{"l":"progii.juegotablero.model"},{"l":"progii.juegotablero.model.ajedrez"},{"l":"progii.juegotablero.model.ajedrez.piezas"},{"l":"progii.juegotablero.resources"}];updateSearchResults();
