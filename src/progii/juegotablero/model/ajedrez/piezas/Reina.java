@@ -9,7 +9,7 @@ import progii.juegotablero.model.ajedrez.PiezaAjedrez;
 import progii.juegotablero.model.ajedrez.TipoPiezaAjedrez;
 
 /**
- * Clase que representa a la Torre
+ * Clase que representa la Reina
  * 
  * @author agonzalez
  *
@@ -18,7 +18,7 @@ import progii.juegotablero.model.ajedrez.TipoPiezaAjedrez;
 public class Reina extends PiezaAjedrez {
 
 	/**
-	 * Crea una torre pertenenciente a jugador en la posición (x,y) del tablero
+	 * Crea una Reina pertenenciente a jugador en la posición (x,y) del tablero
 	 * 
 	 * @param jugador El jugador al que pertenece la pieza
 	 * @param fila    Fila que ocupa

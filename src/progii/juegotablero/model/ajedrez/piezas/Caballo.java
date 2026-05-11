@@ -9,7 +9,7 @@ import progii.juegotablero.model.ajedrez.PiezaAjedrez;
 import progii.juegotablero.model.ajedrez.TipoPiezaAjedrez;
 
 /**
- * Clase que representa a la Torre
+ * Clase que representa al Caballo
  * 
  * @author agonzalez
  *
@@ -18,7 +18,7 @@ import progii.juegotablero.model.ajedrez.TipoPiezaAjedrez;
 public class Caballo extends PiezaAjedrez {
 
 	/**
-	 * Crea una torre pertenenciente a jugador en la posición (x,y) del tablero
+	 * Crea un Caballo pertenenciente a jugador en la posición (x,y) del tablero
 	 * 
 	 * @param jugador El jugador al que pertenece la pieza
 	 * @param fila    Fila que ocupa
@@ -40,19 +40,19 @@ public class Caballo extends PiezaAjedrez {
 
 		// Casillas arriba izquierda
 		casillaVisitable(resultado, fila - 1, columna - 2);
-		casillaVisitable(resultado, getFila() - 2, getColumna() - 1);
+		casillaVisitable(resultado, fila - 2, columna - 1);
 
 		// Casillas arriba derecha
-		casillaVisitable(resultado, getFila() - 1, getColumna() + 2);
-		casillaVisitable(resultado, getFila() - 2, getColumna() + 1);
+		casillaVisitable(resultado, fila - 1, columna + 2);
+		casillaVisitable(resultado, fila - 2, columna + 1);
 
 		// Casillas abajo izquierda
-		casillaVisitable(resultado, getFila() + 1, getColumna() - 2);
-		casillaVisitable(resultado, getFila() + 2, getColumna() - 1);
+		casillaVisitable(resultado, fila + 1, columna - 2);
+		casillaVisitable(resultado, fila + 2, columna - 1);
 
 		// Casillas abajo derecha
-		casillaVisitable(resultado, getFila() + 1, getColumna() + 2);
-		casillaVisitable(resultado, getFila() + 2, getColumna() + 1);
+		casillaVisitable(resultado, fila + 1, columna + 2);
+		casillaVisitable(resultado, fila + 2, columna + 1);
 
 		return resultado;
 	}

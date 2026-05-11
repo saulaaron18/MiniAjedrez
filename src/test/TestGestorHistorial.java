@@ -219,13 +219,13 @@ public class TestGestorHistorial {
 		}
 
 		@Override
-		public Movimiento deshacer() throws MovimientoException, EmptyStackException {
+		public Movimiento deshacer() throws MovimientoException {
 			trace.add(trace.size(),"deshacer()"); 
 			return super.deshacer();
 		}
 
 		@Override
-		public Movimiento rehacer() throws MovimientoException, EmptyStackException {
+		public Movimiento rehacer() throws MovimientoException {
 			trace.add(trace.size(),"rehacer()"); 
 			return super.rehacer();
 		}

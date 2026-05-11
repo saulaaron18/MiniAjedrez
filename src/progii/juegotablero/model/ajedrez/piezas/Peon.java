@@ -10,7 +10,7 @@ import progii.juegotablero.model.ajedrez.PiezaAjedrez;
 import progii.juegotablero.model.ajedrez.TipoPiezaAjedrez;
 
 /**
- * Clase que representa a la Torre
+ * Clase que representa el Peon
  * 
  * @author agonzalez
  *
@@ -19,7 +19,7 @@ import progii.juegotablero.model.ajedrez.TipoPiezaAjedrez;
 public class Peon extends PiezaAjedrez {
 
 	/**
-	 * Crea una torre pertenenciente a jugador en la posición (x,y) del tablero
+	 * Crea un Peón pertenenciente a jugador en la posición (x,y) del tablero
 	 * 
 	 * @param jugador El jugador al que pertenece la pieza
 	 * @param fila    Fila que ocupa
@@ -37,30 +37,31 @@ public class Peon extends PiezaAjedrez {
 		int fila = getFila();
 		int columna = getColumna();
 		int direccion = (getJugador().getId() == ControlJugadoresAjedrez.BLANCO) ? -1 : 1; // Comprobamos el movimiento
-		int desplazamiento = fila + direccion;
+		int paso = fila + direccion;
 
 		// Se pude mover adelante (según su color)
-		if (queHay(desplazamiento, columna) == null) {
-			casillaVisitable(resultado, desplazamiento, columna);
+		if (queHay(paso, columna) == null) {
+			casillaVisitable(resultado, paso, columna);
 
 			// Se puede mover en la segunda casilla
-			if (queHay(fila + direccion * 2, columna) == null
-					&& ((direccion == -1 && fila == 6) || (direccion == 1 && fila == 1))) {
-				casillaVisitable(resultado, fila + direccion * 2, columna);
+			int filaInicial = (direccion == -1) ? 6 : 1;
+			int doblePaso = fila + direccion * 2;
+			if (queHay(doblePaso, columna) == null && fila == filaInicial) {
+				casillaVisitable(resultado, doblePaso, columna);
 			}
 		}
 
-		PiezaAjedrez piezaEsquinaIzquierda = queHay(desplazamiento, columna - 1);
-		PiezaAjedrez piezaEsquinaDerecha = queHay(desplazamiento, columna + 1);
+		PiezaAjedrez piezaEsquinaIzquierda = queHay(paso, columna - 1);
+		PiezaAjedrez piezaEsquinaDerecha = queHay(paso, columna + 1);
 
 		// Se pude comer la pieza de la izquierda (según la matriz)
 		if (piezaEsquinaIzquierda != null && piezaEsquinaIzquierda.getJugador().getId() != getJugador().getId()) {
-			casillaVisitable(resultado, desplazamiento, columna - 1);
+			casillaVisitable(resultado, paso, columna - 1);
 		}
 
 		// Se puede comer la pieza de la derceha (según la matriz)
 		if (piezaEsquinaDerecha != null && piezaEsquinaDerecha.getJugador().getId() != getJugador().getId()) {
-			casillaVisitable(resultado, desplazamiento, columna + 1);
+			casillaVisitable(resultado, paso, columna + 1);
 		}
 
 		return resultado;

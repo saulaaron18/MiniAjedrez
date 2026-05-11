@@ -167,28 +167,17 @@ public abstract class PiezaAjedrez extends Pieza {
 	protected void casillasVisitables(IList<Casilla> resultado, int incFila, int incColumna) {
 		int i = getFila() + incFila;
 		int j = getColumna() + incColumna;
-		PiezaAjedrez pieza = null;
-		boolean hayPiezaEnemiga = false;
+		boolean hayPieza = false;
 
-		while (movimientoDentroLimites(i, j) && !hayPiezaEnemiga) {
-			pieza = queHay(i, j);
+		while (movimientoDentroLimites(i, j) && !hayPieza) {
+			casillaVisitable(resultado, i, j);
 
-			if (pieza == null) {
-				resultado.add(resultado.size(), new Casilla(i, j));
-			}
-
-			else {
-				// Casilla con pieza enemiga
-				if (pieza.getJugador().getId() != getJugador().getId()) {
-					resultado.add(resultado.size(), new Casilla(i, j));
-					hayPiezaEnemiga = true;
-				}
-			}
+			//Comprobamos si había algo (amigo o enemigo)
+			hayPieza = queHay(i, j) != null;
 
 			i += incFila;
 			j += incColumna;
 		}
-
 	}
 
 	/**
