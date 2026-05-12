@@ -62,6 +62,12 @@ public class Rey extends PiezaAjedrez {
 
 		// Diagonal inferior derecha
 		casillaVisitable(resultado, fila + 1, columna + 1);
+		
+		// Se pude hacer enroque corto
+		// TODO
+		
+		// Se pude hacer enroque largo
+		// TODO
 
 		return resultado;
 	}

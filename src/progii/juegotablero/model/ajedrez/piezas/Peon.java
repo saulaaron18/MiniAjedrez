@@ -54,17 +54,22 @@ public class Peon extends PiezaAjedrez {
 		PiezaAjedrez piezaEsquinaIzquierda = queHay(paso, columna - 1);
 		PiezaAjedrez piezaEsquinaDerecha = queHay(paso, columna + 1);
 
-		// Se pude comer la pieza de la izquierda (según la matriz)
+		// Se pude comer la pieza de la esquina izquierda (según la matriz)
 		if (piezaEsquinaIzquierda != null && piezaEsquinaIzquierda.getJugador().getId() != getJugador().getId()) {
 			casillaVisitable(resultado, paso, columna - 1);
 		}
 
-		// Se puede comer la pieza de la derceha (según la matriz)
+		// Se puede comer la pieza de la esquina derceha (según la matriz)
 		if (piezaEsquinaDerecha != null && piezaEsquinaDerecha.getJugador().getId() != getJugador().getId()) {
 			casillaVisitable(resultado, paso, columna + 1);
 		}
+		
+		// Se puede comer En Passant (captura al paso)
+		// TODO
+		
+		// Coronación
+		// TODO
 
 		return resultado;
 	}
-
 }
